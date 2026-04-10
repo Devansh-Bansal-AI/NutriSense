@@ -1,0 +1,26 @@
+{
+  "name": "nutrisense-ai",
+  "version": "1.0.0",
+  "description": "Intelligent Food & Health Assistant",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve .",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.2.1",
+    "firebase": "^10.7.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "keywords": [
+    "health",
+    "ai",
+    "google-cloud",
+    "gemini"
+  ],
+  "author": "",
+  "license": "MIT"
+}
