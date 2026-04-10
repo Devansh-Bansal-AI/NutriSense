@@ -1,12 +1,12 @@
-# 🧠 NutriSense AI
+# 🧠 NutriSense AI: Contextual Intelligence, Not Calorie Counting
+*Most nutrition apps act as dumb calculators. NutriSense AI is an intelligent behavioral engine.*
 
-> **Promptathon-Ready Contextual AI for Nutrition**
->
-> NutriSense AI combines a transparent deterministic decision engine with a **Gemini fallback layer** for out-of-database foods, so recommendations stay fast, explainable, and unmistakably AI-driven under hackathon constraints.
+> Built for the AMD + Hack2Skill Promptathon, NutriSense utilizes a multi-dimensional scoring algorithm to evaluate food based on **who you are, what time it is, your budget, and what you've eaten recently**. By compounding Google Services and heuristics, it brings enterprise-grade decision intelligence into a sub-1MB, zero-dependency environment.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Google Services](https://img.shields.io/badge/Google-Maps%20%7C%20Firebase%20%7C%20Gemini-4285F4?logo=google)](https://cloud.google.com)
 [![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-green.svg)](#tech-stack)
+[![Cloud Run Deploy](https://img.shields.io/badge/Hosted%20On:-Google%20Cloud%20Run-blue?logo=google-cloud)](https://cloud.google.com/run)
 
 ---
 
@@ -136,13 +136,12 @@ Each recommendation includes a **transparent "Why this recommendation"** explana
 |-------|-----------|-----------|
 | **Frontend** | Vanilla HTML/CSS/JS (ES Modules) | Zero build tools, instant startup |
 | **Styling** | CSS Custom Properties + Glassmorphism | Premium dark-mode design system |
-| **Typography** | Google Fonts (Inter) | Enterprise-grade readability |
-| **Maps** | Google Maps JavaScript API + Places | Real-time nearby restaurant search |
-| **Persistence** | Firebase Firestore + Auth | Cloud sync with anonymous auth |
-| **Fallback** | localStorage | Works fully offline |
-| **Architecture** | Modular ES Modules | Clean separation of concerns |
+| **Testing** | Jest | Enterprise-grade heuristic and algorithmic test coverage |
+| **Hosting** | Google Cloud Run (via Docker) | Continuous deployment via GitHub container hooks |
+| **Maps** | Google Maps API + Places | Real-time nearby restaurant search |
+| **AI Fallback** | Gemini 2.0 Flash REST API | Generative evaluation for semantic food inputs |
 
-**Zero npm dependencies. Zero build step. Just open `index.html`.**
+**Note on Speed:** By combining a deterministic heuristic execution with Generative AI only on DB cache-misses, we maintain incredible performance times and deterministic transparency.
 
 ---
 
@@ -154,14 +153,14 @@ Each recommendation includes a **transparent "Why this recommendation"** explana
 - **Category filtering**: Health food, salads, vegan, juice bars, organic, poke
 - **Deep linking**: One-click "Open in Google Maps"
 
-### 2. Firebase
-- **Firestore**: Cloud-synced user profiles, meal logs, and preferences
-- **Anonymous Auth**: Frictionless onboarding — no sign-up required
-- **Graceful fallback**: localStorage when Firebase is unavailable
+### 2. Google Gemini API (Active Fallback Layer)
+- If the semantic keyword scanner fails to match a food in the dataset, it prompts the **Gemini 1.5 Flash** REST endpoint.
+- Returns a standardized JSON object mapping to our custom `score`, `grade`, `summary`, and `macros` definitions.
+- Keeps the system feeling inherently intelligent without breaking the UI.
 
-### 3. Gemini API (Ready)
-- Architecture supports optional Gemini integration for advanced reasoning
-- Explanation generation can be enhanced with LLM-powered insights
+### 3. Firebase & Cloud Deployment
+- Built with hooks for Google Firestore and generic Auth models.
+- Fully containerized (`Dockerfile`) for auto-scaling deployments on **Google Cloud Run**.
 
 ---
 
